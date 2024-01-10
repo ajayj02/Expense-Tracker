@@ -1,4 +1,5 @@
 <template>
+  <h3>Add new transaction</h3>
 <form id="form" @submit.prevent="onSubmit">
     <div class="form-control">
         <label for="text">Text</label>
@@ -36,12 +37,13 @@ const onSubmit = () => {
    
     const transactionData = {
       text: text.value,
-      amount: amount.value
+      amount: parseFloat(amount.value),
     }
 
     emit('transactionSubmitted', transactionData);
-
+      
+    //clear form fields
     text.value = '';
     amount.value = '';
-}
+};
 </script>
