@@ -12,8 +12,8 @@
 import Header from "./components/Header.vue";
 import Balance from "./components/Balance.vue";
 import IncomeExpense from "./components/IncomeExpense.vue";
-import TransactionList from "./components/TransactionList.vue"
-import AddTransaction from "./components/AddTransaction.vue"
+import TransactionList from "./components/TransactionList.vue";
+import AddTransaction from "./components/AddTransaction.vue";
 import {
     useToast
 } from "vue-toastification";
@@ -32,7 +32,7 @@ onMounted(() => {
     const savedTransactions = JSON.parse(localStorage.getItem('transactions'));
 
     if (savedTransactions) {
-        transactions.value = savedTransctions;
+        transactions.value = savedTransactions;
     }
 });
 
@@ -82,7 +82,8 @@ const generateUniqueId = () => {
 //Delete transaction
 const handleTransactionDeleted = (id) => {
     transactions.value = transactions.value.filter(
-    (transaction) =>  transaction.id !== id);
+    (transaction) =>  transaction.id !== id
+    );
     saveTransactionsToLocalStorage();
 
     toast.success('Transaction deleted');
